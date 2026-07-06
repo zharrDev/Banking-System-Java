@@ -12,3 +12,5 @@ export interface ApplyInterestResponse{message:string;accountsProcessed:number}
 export type NotificationType='success'|'error'|'warning'|'info'
 export interface Notification{id:string;type:NotificationType;title:string;message:string;duration?:number}
 export interface DashboardSummary{totalAccounts:number;totalCustomers:number;totalBalance:number;totalTransactions:number;recentTransactions:Transaction[];monthlyInflow:number;monthlyOutflow:number;chartData:any[];accountTypeDistribution:any[]}
+export interface AccountTypeData{type:string;count:number;percentage:number}
+export interface ChartDataPoint{label:string;value:number;color?:string}
