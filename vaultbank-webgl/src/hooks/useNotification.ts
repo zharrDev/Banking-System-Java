@@ -1,0 +1,4 @@
+import { useCallback, useState } from 'react'
+import type { Notification, NotificationType } from '@/types'
+import { generateId } from '@/utils/formatters'
+export const useNotification=()=>{const [n,setN]=useState<Notification[]>([]);const add=useCallback((type:NotificationType,title:string,message:string,duration=5000)=>{const id=generateId();setN(p=>[...p,{id,type,title,message,duration}]);if(duration>0)setTimeout(()=>setN(p=>p.filter(x=>x.id!==id)),duration);return id},[]);const remove=useCallback((id:string)=>setN(p=>p.filter(x=>x.id!==id)),[]);return{notifications:n,addNotification:add,removeNotification:remove,success:useCallback((t:string,m:string)=>add('success',t,m),[add]),error:useCallback((t:string,m:string)=>add('error',t,m),[add]),warning:useCallback((t:string,m:string)=>add('warning',t,m),[add]),info:useCallback((t:string,m:string)=>add('info',t,m),[add])}}

@@ -1,0 +1,14 @@
+export type UserRole='ADMIN'|'USER'|string
+export interface User{email:string;role:UserRole;fullName?:string;username?:string;phone?:string;address?:string;avatarUrl?:string;createdAt?:string;lastLogin?:string;token?:string}
+export interface Account{id:number;accountNumber:string;accountType:string;balance:number;currency:string;status:string;customerId?:number;customerName:string;customerEmail?:string;interestRate?:number;createdAt:string;updatedAt:string}
+export interface Transaction{id:number;type:string;amount:number;currency:string;description:string;status:string;fromAccountId?:number;fromAccountNumber?:string;toAccountId?:number;toAccountNumber?:string;referenceNumber:string;createdAt:string;completedAt?:string;balanceAfter?:number}
+export interface LoginRequest{email:string;password:string}
+export interface LoginResponse{token:string;email:string;role:string}
+export interface RegisterRequest{fullName:string;email:string;password:string;confirmPassword:string}
+export interface TransferRequest{toAccountNumber:string;amount:number;description?:string}
+export interface DepositRequest{amount:number}
+export interface WithdrawRequest{amount:number}
+export interface ApplyInterestResponse{message:string;accountsProcessed:number}
+export type NotificationType='success'|'error'|'warning'|'info'
+export interface Notification{id:string;type:NotificationType;title:string;message:string;duration?:number}
+export interface DashboardSummary{totalAccounts:number;totalCustomers:number;totalBalance:number;totalTransactions:number;recentTransactions:Transaction[];monthlyInflow:number;monthlyOutflow:number;chartData:any[];accountTypeDistribution:any[]}

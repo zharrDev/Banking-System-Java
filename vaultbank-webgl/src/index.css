@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base{
+:root{color-scheme:light;--app-bg:#f8f9fb;--surface-1:#ffffff;--surface-2:#f8fafc;--ink-primary:#102a43;--ink-secondary:#486581;--ink-muted:#829ab1;--line-soft:#e2e8f0;--line-strong:#cbd5e1;--premium-shadow:0 20px 50px -12px rgba(16,42,67,.08);--premium-shadow-lg:0 30px 60px -12px rgba(16,42,67,.12);--color-gold-500:#f0b429}
+.theme-dark{color-scheme:dark;--app-bg:#0b1118;--surface-1:#162231;--surface-2:#1c2a3e;--ink-primary:#f0f4f8;--ink-secondary:#bcccdc;--ink-muted:#829ab1;--line-soft:#243b53;--line-strong:#334e68}
+*{box-sizing:border-box}html,body,#root{min-height:100%;scroll-behavior:smooth}
+body{color:var(--ink-primary);background:var(--app-bg);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#webgl-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.webgl-content{position:relative;z-index:10}
+}
+@layer components{
+.premium-card{background:color-mix(in srgb,var(--surface-1) 92%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line-soft);border-radius:2rem;box-shadow:var(--premium-shadow)}
+.btn-base{@apply inline-flex items-center justify-center gap-2 rounded-[1.25rem] px-6 py-3 text-[0.9375rem] font-semibold transition-all duration-200;}
+.btn-primary{@apply btn-base text-white shadow-md; background:#102a43; border-color:#102a43}
+.btn-primary:hover{background:#243b53; transform:translateY(-1px)}
+.btn-secondary{@apply btn-base; background:color-mix(in srgb, var(--surface-1) 88%, transparent); color:var(--ink-primary); border:1.5px solid var(--line-soft)}
+.btn-gold{@apply btn-base; background:#f0b429; color:#102a43; border-color:#f0b429}
+.btn-success{@apply btn-base text-white; background:#27ab83; border-color:#27ab83}
+.btn-danger{@apply btn-base text-white; background:#e12d39; border-color:#e12d39}
+.sketch-input{@apply w-full rounded-[1.25rem] px-4 py-[0.9rem] text-[0.95rem] transition-all; border:1.5px solid var(--line-soft); background:color-mix(in srgb, var(--surface-1) 94%, transparent); color:var(--ink-primary)}
+.sketch-input:focus{outline:none;border-color:#f0b429;box-shadow:0 0 0 4px rgba(240,180,41,.1)}
+.sketch-surface{background:color-mix(in srgb, var(--surface-1) 88%, transparent);backdrop-filter:blur(12px);border:1px solid var(--line-soft)}
+.sketch-note{background:color-mix(in srgb, #effcf6 88%, transparent);border:1px dashed #8eedc7;backdrop-filter:blur(8px)}
+.app-topbar{background:color-mix(in srgb, var(--surface-1) 82%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.app-sidebar{background:linear-gradient(180deg,#0f2942 0%, #0b1d30 100%)}
+.glass-panel{background:color-mix(in srgb, var(--surface-1) 78%, transparent);backdrop-filter:blur(18px) saturate(1.15);border:1px solid color-mix(in srgb, var(--line-soft) 70%, transparent)}
+}
+.webgl-overlay-text{text-shadow:0 2px 22px rgba(0,0,0,.08)}
