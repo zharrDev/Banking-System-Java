@@ -1,81 +1,79 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
-
-import { ArrowRight } from 'lucide-react'
-
-import { RoughUnderline } from '@/components/rough/RoughUnderline'
-
-import { DoodleSparkle, DoodleCircle, DoodleCross, DoodleDots } from '@/components/illustrations/DoodleDecorations'
+import { ArrowRight, Star, Sparkles, Rocket } from 'lucide-react'
 
 export const CTASection: React.FC = () => {
-
   return (
+    <section className="relative py-32 lg:py-40 px-6 sm:px-8 lg:px-12 overflow-hidden">
+      {/* Glow Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-amber-500/[0.06] blur-[120px] animate-pulse" />
+        <div className="absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-blue-500/[0.03] blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-1/4 left-1/4 h-[250px] w-[250px] rounded-full bg-emerald-500/[0.02] blur-[100px] animate-pulse" style={{ animationDelay: '4s' }} />
+      </div>
 
-  <section className="relative py-32 lg:py-36 px-6 text-center sm:px-8 lg:px-12 overflow-hidden" aria-labelledby="cta-heading">
+      <div className="mx-auto max-w-3xl relative z-10 text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/8 backdrop-blur-sm px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300 mb-8 hover:border-amber-500/40 transition-all duration-300 group">
+          <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 group-hover:rotate-12 transition-transform duration-300" />
+          Get Started Today
+          <Sparkles className="h-3 w-3 text-amber-400" />
+        </div>
 
-  <DoodleSparkle className="absolute top-12 left-[12%] h-4 w-4 text-gold-400 animate-[float_4s_ease-in-out_infinite_0.3s]" />
+        <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl mb-6 tracking-tight text-white">
+          Ready to take control of{' '}
+          <span className="relative">
+            <span className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-amber-300/20 blur-2xl" />
+            <span className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+              your finances
+            </span>
+          </span>
+          ?
+        </h2>
 
-  <DoodleSparkle className="absolute bottom-16 right-[15%] h-5 w-5 text-pale-green-400 animate-[float_5s_ease-in-out_infinite_0.8s]" />
+        <p className="text-lg text-zinc-400 mb-12 max-w-xl mx-auto leading-relaxed">
+          Join thousands of users who trust VaultBank for their daily banking needs. 
+          Setup takes less than 2 minutes.
+        </p>
 
-  <DoodleCircle className="absolute top-20 right-[8%] h-12 w-12 text-navy-200 animate-[wiggle_6s_ease-in-out_infinite]" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link 
+            to="/register" 
+            className="nd-btn px-10 py-4 text-lg w-full sm:w-auto shadow-glow-amber group relative overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center">
+              Get Started Now 
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-300 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+          </Link>
+          
+          <Link 
+            to="/login" 
+            className="nd-btn-outline px-10 py-4 text-lg w-full sm:w-auto group"
+          >
+            <span className="flex items-center">
+              Sign In to Dashboard
+              <Rocket className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+            </span>
+          </Link>
+        </div>
 
-  <DoodleCross className="absolute bottom-24 left-[10%] h-3.5 w-3.5 text-gold-400 animate-[wiggle_5s_ease-in-out_infinite_0.5s]" />
-
-  <div className="mx-auto max-w-3xl relative z-10">
-
-  <DoodleDots className="mx-auto mb-6 text-navy-300" />
-
-  <h2 id="cta-heading" className="text-3xl font-extrabold sm:text-4xl lg:text-5xl mb-8 tracking-tight">
-
-  Ready to take control of{' '}
-
-  <RoughUnderline stroke="var(--color-gold-500)" strokeWidth={3} className="inline-block">
-
-  <span className="text-gold-600">your finances</span>
-
-  </RoughUnderline>
-
-  ?
-
-  </h2>
-
-  <p className="text-lg text-ink-secondary mb-12 max-w-xl mx-auto leading-relaxed">
-
-  Join thousands of users who trust VaultBank for their daily banking needs.
-
-  Setup takes less than 2 minutes.
-
-  </p>
-
-  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-
-  <Link
-
-  to="/register"
-
-  className="btn-primary px-10 py-4 text-lg w-full sm:w-auto transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
-
-  >
-
-  Get Started Now
-
-  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-
-  </Link>
-
-  <Link to="/login" className="btn-secondary px-10 py-4 text-lg w-full sm:w-auto transition-all duration-300 hover:scale-[1.03] hover:shadow-md active:scale-[0.98]">
-
-  Sign In to Dashboard
-
-  </Link>
-
-  </div>
-
-  </div>
-
-  </section>
-
+        {/* Trust Badges */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-500">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span>Free to start</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span>No hidden fees</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+            <span>24/7 support</span>
+          </div>
+        </div>
+      </div>
+    </section>
   )
-
 }

@@ -1,117 +1,95 @@
-import React from 'react'
-
-import { RoughBorder } from '@/components/rough/RoughBorder'
-
-import { RoughUnderline } from '@/components/rough/RoughUnderline'
-
-import { RoughDivider } from '@/components/rough/RoughDivider'
-
-import { DoodleSparkle, DoodleCircle, DoodleDots, DoodleCross } from '@/components/illustrations/DoodleDecorations'
-
-import { features } from '@/constants/landing'
+import React, { useEffect, useRef } from "react";
+import { Star, Sparkles } from "lucide-react";
+import { features } from "@/constants/landing";
 
 export const FeaturesSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cards = entry.target.querySelectorAll(".feature-card");
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("animate-fade-in-up");
+                card.classList.remove("opacity-0");
+              }, index * 150);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, []);
 
   return (
+    <section
+      id="features"
+      ref={sectionRef}
+      className="relative py-28 lg:py-36 px-6 sm:px-8 lg:px-12 border-y border-amber-500/5 bg-gradient-to-b from-dark to-dark-card/30"
+      aria-labelledby="features-heading"
+    >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-amber-500/[0.02] blur-[150px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-blue-500/[0.01] blur-[150px]" />
+      </div>
 
-  <>
+      <div className="mx-auto max-w-7xl relative z-10">
+        <div className="mb-20 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/8 backdrop-blur-sm px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300 mb-6">
+            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />{" "}
+            Features
+          </div>
+          <h2
+            id="features-heading"
+            className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight text-white"
+          >
+            Everything you need,{" "}
+            <span className="relative">
+              <span className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-amber-300/20 blur-2xl" />
+              <span className="relative bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">
+                nothing
+              </span>
+            </span>{" "}
+            you don't.
+          </h2>
+          <p className="mt-5 text-lg text-zinc-400 max-w-2xl mx-auto">
+            Built around the core tasks of daily banking — simple, fast, and
+            reliable.
+          </p>
+        </div>
 
-  <div className="px-6 sm:px-8 lg:px-12">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, i) => (
+            <div
+              key={i}
+              className="feature-card opacity-0 nd-card p-8 sm:p-10 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/5 border border-white/5 hover:border-amber-500/30 group"
+            >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-400 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-amber-500 group-hover:to-amber-600 group-hover:text-dark group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-amber-500/30">
+                <feature.icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
+              </div>
 
-  <RoughDivider className="mx-auto max-w-7xl" stroke="var(--line-soft)" strokeWidth={0.8} roughness={1.4} />
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors duration-300">
+                {feature.title}
+              </h3>
+              <p className="text-zinc-400 leading-relaxed text-[0.95rem] group-hover:text-zinc-300 transition-colors duration-300">
+                {feature.desc}
+              </p>
 
-  </div>
-
-  <section id="features" className="relative py-32 lg:py-36 bg-surface-2/50 border-y border-line-soft px-6 sm:px-8 lg:px-12 overflow-hidden" aria-labelledby="features-heading">
-
-  <DoodleSparkle className="absolute top-12 right-[10%] h-4 w-4 text-gold-400 animate-[float_4s_ease-in-out_infinite]" />
-
-  <DoodleCircle className="absolute bottom-20 left-[5%] h-14 w-14 text-navy-200 animate-[wiggle_6s_ease-in-out_infinite]" />
-
-  <DoodleDots className="absolute top-24 left-[8%] hidden md:block text-navy-300" />
-
-  <div className="mx-auto max-w-7xl">
-
-  <div className="mb-20 text-center animate-[fadeInUp_0.6s_ease-out]">
-
-  <DoodleCross className="mx-auto mb-4 h-3 w-3 text-gold-400" />
-
-  <h2 id="features-heading" className="text-3xl font-extrabold sm:text-4xl lg:text-5xl tracking-tight">
-
-  Everything you need,{' '}
-
-  <RoughUnderline stroke="var(--color-gold-500)" strokeWidth={2.5}>
-
-  <span className="text-gold-600">nothing</span>
-
-  </RoughUnderline>{' '}
-
-  you don't.
-
-  </h2>
-
-  <p className="mt-5 text-lg text-ink-secondary max-w-2xl mx-auto">
-
-  Built around the core tasks of daily banking.
-
-  </p>
-
-  </div>
-
-  <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-  {features.map((feature, i) => (
-
-  <RoughBorder
-
-  key={i}
-
-  className="group relative bg-surface-1 rounded-[24px] transition-all duration-300 hover:-translate-y-1 hover:rotate-[-0.5deg] hover:shadow-[var(--premium-shadow-lg)]"
-
-  stroke="var(--line-soft)"
-
-  strokeWidth={1}
-
-  roughness={0.6}
-
-  bowing={0.5}
-
-  >
-
-  <div className="p-8 sm:p-10">
-
-  <div
-
-  className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-600 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white group-hover:scale-110 group-hover:rotate-6"
-
-  aria-hidden="true"
-
-  >
-
-  <feature.icon className="h-7 w-7" />
-
-  </div>
-
-  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-
-  <p className="text-ink-secondary leading-relaxed text-[0.95rem]">{feature.desc}</p>
-
-  </div>
-
-  <DoodleSparkle className="absolute -top-1.5 -right-1.5 h-3 w-3 text-gold-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-  </RoughBorder>
-
-  ))}
-
-  </div>
-
-  </div>
-
-  </section>
-
-  </>
-
-  )
-
-}
+              {/* Decorative Line */}
+              <div className="mt-4 w-12 h-0.5 bg-gradient-to-r from-amber-500/50 to-transparent group-hover:w-full transition-all duration-700" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
