@@ -26,6 +26,28 @@ export default {
           emerald: "#34d399",
           red: "#f87171",
         },
+        // Light mode colors (used with darkMode: 'class' on parent)
+        light: {
+          bg: "#f8fafc",
+          surface: "#ffffff",
+          card: "#ffffff",
+          elevated: "#f1f5f9",
+          border: "#e2e8f0",
+          "border-soft": "#cbd5e1",
+          muted: "#64748b",
+          secondary: "#475569",
+          primary: "#0f172a",
+          navy: "#1e3a5f",
+          "navy-light": "#2d5390",
+          gold: "#d97706",
+          "gold-light": "#f59e0b",
+          "gold-dark": "#b45309",
+          "gold-glow": "rgba(217,119,6,0.35)",
+          rose: "#ec4899",
+          cyan: "#06b6d4",
+          emerald: "#10b981",
+          red: "#ef4444",
+        },
         // Tambahan warna untuk kompatibilitas
         dark: {
           DEFAULT: "#04070d",

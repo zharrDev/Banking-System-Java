@@ -19,20 +19,37 @@
     --nd-accent-dark: #d97706;
     --nd-glow: rgba(245, 158, 11, 0.35);
   }
-  
+
+  .light {
+    color-scheme: light;
+    --nd-bg: #f8fafc;
+    --nd-surface: #ffffff;
+    --nd-card: #ffffff;
+    --nd-elevated: #f1f5f9;
+    --nd-border: #e2e8f0;
+    --nd-border-soft: #cbd5e1;
+    --nd-muted: #64748b;
+    --nd-secondary: #475569;
+    --nd-primary: #0f172a;
+    --nd-accent: #d97706;
+    --nd-accent-light: #f59e0b;
+    --nd-accent-dark: #b45309;
+    --nd-glow: rgba(217, 119, 6, 0.35);
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  
+
   html,
   body,
   #root {
     min-height: 100%;
     scroll-behavior: smooth;
   }
-  
+
   body {
     color: var(--nd-primary);
     background: var(--nd-bg);
@@ -40,6 +57,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   /* Custom Scrollbar */

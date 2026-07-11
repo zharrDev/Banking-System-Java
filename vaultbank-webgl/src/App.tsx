@@ -16,6 +16,7 @@ import { ProfilePage } from '@/pages/ProfilePage'
 import { authService } from '@/services/authService'
 import { Landmark } from 'lucide-react'
 import type { LoginRequest, RegisterRequest, User } from '@/types'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const AppShell: React.FC = () => {
   const { user, isAuthenticated, isLoading, login, logout, updateUser } = useAuth()
@@ -40,26 +41,28 @@ const AppShell: React.FC = () => {
   )
 
   return (
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <NotificationToast notifications={notifications} onRemove={removeNotification} />
-      <Routes>
-        {!isAuthenticated ? (<>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-          <Route path="/register" element={<RegisterPage onRegister={handleRegister} />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </>) : (<>
-          <Route element={<MainLayout user={user} onLogout={handleLogout} />}>
-            <Route path="/dashboard" element={<DashboardPage user={user} />} />
-            <Route path="/accounts" element={<AccountsPage user={user} />} />
-            <Route path="/transactions" element={<TransactionsPage user={user} />} />
-            <Route path="/transfer" element={<TransferPage user={user} />} />
-            <Route path="/profile" element={<ProfilePage user={user} onUpdateUser={handleUpdateUser} />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </>)}
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <NotificationToast notifications={notifications} onRemove={removeNotification} />
+        <Routes>
+          {!isAuthenticated ? (<>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+            <Route path="/register" element={<RegisterPage onRegister={handleRegister} />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </>) : (<>
+            <Route element={<MainLayout user={user} onLogout={handleLogout} />}>
+              <Route path="/dashboard" element={<DashboardPage user={user} />} />
+              <Route path="/accounts" element={<AccountsPage user={user} />} />
+              <Route path="/transactions" element={<TransactionsPage user={user} />} />
+              <Route path="/transfer" element={<TransferPage user={user} />} />
+              <Route path="/profile" element={<ProfilePage user={user} onUpdateUser={handleUpdateUser} />} />
+            </Route>
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          </>)}
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 const App: React.FC = () => <AppShell />
