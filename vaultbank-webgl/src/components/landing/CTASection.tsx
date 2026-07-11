@@ -19,7 +19,7 @@ export const CTASection: React.FC = () => {
           <Sparkles className="h-3 w-3 text-amber-400" />
         </div>
 
-        <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl mb-6 tracking-tight text-white dark:text-white">
+        <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl mb-6 tracking-tight text-slate-900 dark:text-white">
           Ready to take control of{' '}
           <span className="relative">
             <span className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-amber-300/20 blur-2xl" />
@@ -30,7 +30,7 @@ export const CTASection: React.FC = () => {
           ?
         </h2>
 
-        <p className="text-lg text-zinc-400 mb-12 max-w-xl mx-auto leading-relaxed dark:text-zinc-300">
+        <p className="text-lg text-slate-500 mb-12 max-w-xl mx-auto leading-relaxed dark:text-zinc-300">
           Join thousands of users who trust VaultBank for their daily banking needs. 
           Setup takes less than 2 minutes.
         </p>
@@ -59,7 +59,7 @@ export const CTASection: React.FC = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400 dark:text-zinc-400">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>Free to start</span>
@@ -75,7 +75,7 @@ export const CTASection: React.FC = () => {
         </div>
 
         {/* Security Badges Row */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-500 dark:text-zinc-400">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400 dark:text-zinc-400">
           {[
             { icon: Shield, text: "AES-256 Encryption", color: "text-emerald-400" },
             { icon: Zap, text: "Real-time Alerts", color: "text-amber-400" },

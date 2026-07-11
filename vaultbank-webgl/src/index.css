@@ -4,23 +4,6 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-    --nd-bg: #04070d;
-    --nd-surface: #0a0f1a;
-    --nd-card: #0f1729;
-    --nd-elevated: #131d33;
-    --nd-border: #1a2744;
-    --nd-border-soft: #243352;
-    --nd-muted: #5a6d8a;
-    --nd-secondary: #8899b4;
-    --nd-primary: #f0f4f8;
-    --nd-accent: #f59e0b;
-    --nd-accent-light: #fbbf24;
-    --nd-accent-dark: #d97706;
-    --nd-glow: rgba(245, 158, 11, 0.35);
-  }
-
-  .light {
     color-scheme: light;
     --nd-bg: #f8fafc;
     --nd-surface: #ffffff;
@@ -35,6 +18,23 @@
     --nd-accent-light: #f59e0b;
     --nd-accent-dark: #b45309;
     --nd-glow: rgba(217, 119, 6, 0.35);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --nd-bg: #04070d;
+    --nd-surface: #0a0f1a;
+    --nd-card: #0f1729;
+    --nd-elevated: #131d33;
+    --nd-border: #1a2744;
+    --nd-border-soft: #243352;
+    --nd-muted: #5a6d8a;
+    --nd-secondary: #8899b4;
+    --nd-primary: #f0f4f8;
+    --nd-accent: #f59e0b;
+    --nd-accent-light: #fbbf24;
+    --nd-accent-dark: #d97706;
+    --nd-glow: rgba(245, 158, 11, 0.35);
   }
 
   * {
@@ -56,8 +56,11 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #root {
+    overflow-x: hidden;
   }
   
   /* Custom Scrollbar */
@@ -97,11 +100,14 @@
   
   /* Glass */
   .nd-glass {
-    background: rgba(15, 23, 41, 0.65);
+    background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(245, 158, 11, 0.10);
     @apply rounded-3xl;
+  }
+  .dark .nd-glass {
+    background: rgba(15, 23, 41, 0.65);
   }
   
   /* Gradient Card */
@@ -211,16 +217,22 @@
   /* Topbar */
   .nd-topbar {
     @apply sticky top-0 z-40;
-    background: rgba(4, 7, 13, 0.75);
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--nd-border);
   }
+  .dark .nd-topbar {
+    background: rgba(4, 7, 13, 0.75);
+  }
   
   /* Sidebar */
   .nd-sidebar {
-    background: linear-gradient(180deg, #0a1020 0%, #070d18 50%, #040810 100%);
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
     border-right: 1px solid var(--nd-border);
+  }
+  .dark .nd-sidebar {
+    background: linear-gradient(180deg, #0a1020 0%, #070d18 50%, #040810 100%);
   }
   
   /* Divider */
@@ -397,5 +409,37 @@
     mask-composite: exclude;
     animation: spin 4s linear infinite reverse;
     filter: blur(4px);
+  }
+
+  /* Golden Orbit Glow for rectangular cards */
+  .nd-orbit-glow {
+    position: relative;
+  }
+  .nd-orbit-glow::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    padding: 3px;
+    background: conic-gradient(from 0deg, transparent, #f59e0b, #fbbf24, #f59e0b, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: spin 3s linear infinite;
+  }
+  .nd-orbit-glow::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    padding: 3px;
+    background: conic-gradient(from 0deg, transparent, rgba(245,158,11,0.5), rgba(251,191,36,0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: spin 4s linear infinite reverse;
+    filter: blur(8px);
   }
 }

@@ -35,10 +35,10 @@ const items = [
 
 export const MarqueeBar: React.FC = () => {
   return (
-    <div className="relative border-y border-amber-500/10 bg-gradient-to-r from-nd-card/50 via-nd-card to-nd-card/50 overflow-hidden py-4 dark:from-nd-card/50 dark:via-nd-card dark:to-nd-card/50">
+    <div className="relative border-y border-amber-500/10 bg-gradient-to-r from-slate-100/50 via-white to-slate-100/50 overflow-hidden py-4 dark:from-nd-card/50 dark:via-nd-card dark:to-nd-card/50">
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-nd-bg to-transparent pointer-events-none dark:from-nd-bg" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-nd-bg to-transparent pointer-events-none dark:from-nd-bg" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none dark:from-nd-bg" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none dark:from-nd-bg" />
 
       <div className="flex gap-12 animate-marquee hover:animate-none transition-all duration-1000">
         {items.map((item, i) => {
@@ -46,7 +46,7 @@ export const MarqueeBar: React.FC = () => {
           return (
             <div
               key={i}
-              className="flex items-center gap-3 flex-shrink-0 text-zinc-400 hover:text-amber-400 transition-all duration-300 cursor-default group dark:text-zinc-400 dark:hover:text-amber-400"
+              className="flex items-center gap-3 flex-shrink-0 text-slate-500 hover:text-amber-500 transition-all duration-300 cursor-default group dark:text-zinc-400 dark:hover:text-amber-400"
             >
               <div className="p-1 rounded-lg bg-amber-500/5 group-hover:bg-amber-500/20 transition-all duration-300 group-hover:scale-110 dark:bg-amber-500/5 dark:group-hover:bg-amber-500/20">
                 <Icon className="h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />

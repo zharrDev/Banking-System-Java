@@ -101,7 +101,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   return (
     <div ref={ref} className="relative">
       <div
-        className={`text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight bg-gradient-to-r ${color} bg-clip-text text-transparent transition-all duration-1000`}
+        className={`text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight bg-gradient-to-r ${color} bg-clip-text text-transparent transition-all duration-1000`}
       >
         {display}
         {suffix}
@@ -127,10 +127,10 @@ export const StatsCounter: React.FC = () => {
       <div ref={containerRef} className="mx-auto max-w-6xl relative z-10">
         {/* Section Label */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300 mb-4 dark:border-amber-500/20 dark:bg-amber-500/10">
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-300 mb-4 dark:border-amber-500/20 dark:bg-amber-500/10">
             <TrendingUp className="h-3.5 w-3.5" /> Our Impact
           </div>
-          <p className="text-lg text-zinc-400 max-w-2xl mx-auto dark:text-zinc-300">
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto dark:text-zinc-300">
             Trusted by thousands of users worldwide
           </p>
         </div>
@@ -151,7 +151,7 @@ export const StatsCounter: React.FC = () => {
                   isDecimal={s.isDecimal}
                   color={s.color}
                 />
-                <p className="mt-3 text-sm font-medium text-zinc-500 group-hover:text-zinc-400 transition-colors duration-300 dark:text-zinc-500 dark:group-hover:text-zinc-400">
+                <p className="mt-3 text-sm font-medium text-slate-400 group-hover:text-slate-500 transition-colors duration-300 dark:text-zinc-500 dark:group-hover:text-zinc-400">
                   {s.label}
                 </p>
               </div>

@@ -10,7 +10,7 @@ import { Footer } from "@/components/landing/Footer";
 
 export const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-dark text-zinc-light overflow-x-hidden">
+    <div className="min-h-screen bg-gray-50 text-slate-900 dark:bg-dark dark:text-zinc-light">
       {/* Floating Particles Background */}
       <div className="fixed pointer-events-none inset-0">
         <div className="absolute -top-[30%] -right-[20%] h-[600px] w-[600px] rounded-full bg-amber-500/[0.03] blur-[120px] animate-pulse" />
